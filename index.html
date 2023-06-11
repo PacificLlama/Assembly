@@ -1,44 +1,64 @@
 <html>
-  <head>
-    <title>KakaoTalk Embed</title>
-    <script id="javascript-sdk" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-  </head>
-  <body>
-    <p><strong>Click the image below</strong> By. Blackcats4567</p>
-    <a id="kakao-link-btn" href="javascript:sendLink()">
-      <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
-    </a>
-  <script type="text/javascript">
-   Kakao.init('1b21c3ad1766766eccf0b9c86eb0711b');
-    function sendLink() {
-      Kakao.Link.sendDefault({
-        objectType: 'feed',
-        content: {
-          title: '잔나비 - 주저하는 연인들을 위',
-          description: '2019년 3월 13일에 발매된 잔나비 정규 2집 \'전설\'의 8번 트랙이자 타이틀 곡이다. 멜론 차트 기준 5월 월간 차트 1위를 달성한 잔나비의 메가 히트곡 ...',
-          imageUrl:
-            'https://image.bugsm.co.kr/album/images/500/202371/20237198.jpg',
-          link: {
-            mobileWebUrl: 'https://www.youtube.com/watch?v=5g4KsIizYhQ',
-            webUrl: 'https://www.youtube.com/watch?v=5g4KsIizYhQ',
-          },
-        },
-        social: {
-          likeCount: LIKE, //99999 is the maximum
-          commentCount: COMMENT, //99999 is the maximum
-          sharedCount: SHARED, //99999 is the maximum
-        },
-        buttons: [
-          {
-            title: '검색 결과 더보기',
-            link: {
-              mobileWebUrl: 'https://www.google.com/search?gs_ssp=eJwBMwDM_woNL2cvMTFmazk1dms1NjABSiDso7zsoIDtlZjripQg7Jew7J2465Ok7J2EIOychO2VtCQDGgQ&q=%EC%A3%BC%EC%A0%80%ED%95%98%EB%8A%94+%EC%97%B0%EC%9D%B8%EB%93%A4%EC%9D%84+%EC%9C%84%ED%95%B4&rlz=1C1YTUH_enVN1041VN1041&oq=%EC%A3%BC%EC%A0%80&aqs=chrome.1.69i59j46i512j69i59j69i57j0i512l5.2345j0j9&sourceid=chrome&ie=UTF-8',
-              webUrl: 'https://www.google.com/search?gs_ssp=eJwBMwDM_woNL2cvMTFmazk1dms1NjABSiDso7zsoIDtlZjripQg7Jew7J2465Ok7J2EIOychO2VtCQDGgQ&q=%EC%A3%BC%EC%A0%80%ED%95%98%EB%8A%94+%EC%97%B0%EC%9D%B8%EB%93%A4%EC%9D%84+%EC%9C%84%ED%95%B4&rlz=1C1YTUH_enVN1041VN1041&oq=%EC%A3%BC%EC%A0%80&aqs=chrome.1.69i59j46i512j69i59j69i57j0i512l5.2345j0j9&sourceid=chrome&ie=UTF-8',
-            },
-          },
-        ],
-      })
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>카톡 공유</title>
+<script type="text/JavaScript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+</head>
+<body>
+    <input type="button" onClick="sendLinkCustom();" value="Custom"/>
+    <input type="button" onClick="sendLinkDefault();" value="Default"/>
+
+<script type="text/javascript">
+    function sendLinkCustom() {
+        Kakao.init("1b21c3ad1766766eccf0b9c86eb0711b");
+        Kakao.Link.sendCustom({
+            templateId: 94859
+        });
     }
-  </script>
-  </body>
+</script>
+
+<script>
+try {
+  function sendLinkDefault() {
+    Kakao.init('1b21c3ad1766766eccf0b9c86eb0711b')
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '잔나비 - 주저하는 연인들을 위',
+        description: '2019년 3월 13일에 발매된 잔나비 정규 2집 \'전설\'의 8번 트랙이자 타이틀 곡이다. 멜론 차트 기준 5월 월간 차트 1위를 달성한 잔나비의 메가 히트곡 ...',
+        imageUrl:
+          'https://image.bugsm.co.kr/album/images/500/202371/20237198.jpg',
+        link: {
+          mobileWebUrl: 'https://developers.kakao.com',
+          webUrl: 'https://developers.kakao.com',
+        },
+      },
+      social: {
+        likeCount: 286,
+        commentCount: 45,
+        sharedCount: 845,
+      },
+      buttons: [
+        {
+          title: '웹으로 보기',
+          link: {
+            mobileWebUrl: 'https://developers.kakao.com',
+            webUrl: 'https://developers.kakao.com',
+          },
+        },
+        {
+          title: '앱으로 보기',
+          link: {
+            mobileWebUrl: 'https://developers.kakao.com',
+            webUrl: 'https://developers.kakao.com',
+          },
+        },
+      ],
+    })
+  }
+; window.kakaoDemoCallback && window.kakaoDemoCallback() }
+catch(e) { window.kakaoDemoException && window.kakaoDemoException(e) }
+</script>
+   
+</body>
 </html>
